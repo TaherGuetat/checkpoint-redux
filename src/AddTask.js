@@ -1,32 +1,47 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { addtask } from './JS/actions/todoActions'
+import React, { useState } from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addtask } from "./JS/actions/todoActions";
 
 export const AddTask = () => {
-    const [addvalue,setAddvalue]=useState('')
+  const [addvalue, setAddvalue] = useState("");
 
-    // const todo =useSelector((state)=>state.todo)
-    const dispatch=useDispatch()
-    const handleKeypress=(e)=>{
-        if (e.key==='Enter') {
-          dispatch(addtask(addvalue))
-         }
-        }
-    const submitTask = (e) => {
-        e.preventDefault();
-    
-    // if (!addvalue.trim()) {
-    //     alert('Please fill in your task')
-    // }
-    
-        setAddvalue('');
+  const dispatch = useDispatch();
+  const handleKeypress = (e) => {
+    if (e.key === "Enter") {
+      dispatch(addtask(addvalue));
     }
+  };
+  const submitTask = (e) => {
+    e.preventDefault();
+
+    setAddvalue("");
+  };
   return (
     <div>
-        <form onSubmit={submitTask}>
-        <input type="text" value={addvalue} onChange={(e)=>setAddvalue(e.target.value)} onKeyPress={handleKeypress}/>
-        <button type="submit" onClick={()=>dispatch(addtask(addvalue)) }>Add Task</button>
-        </form>
+      <Form onSubmit={submitTask}>
+        <Form.Group className="d-flex flex-row justify-content-center mb-3 mt-3 " controlId="formBasicEmail">
+          <Button 
+            variant="primary"
+            type="submit"
+            onClick={() => dispatch(addtask(addvalue))}
+          >
+            Add Task
+          </Button>
+          <div style={{width:'300px'}}>
+          <InputGroup 
+            size="sm"
+            className="mt-1 ms-2"
+            type="text"
+            value={addvalue}
+            onChange={(e) => setAddvalue(e.target.value)}
+            onKeyPress={handleKeypress}
+          >
+            <Form.Control type="text" placeholder="Add Task" />
+          </InputGroup>
+          </div>
+        </Form.Group>
+      </Form>
     </div>
-  )
-}
+  );
+};
