@@ -7,14 +7,16 @@ export const AddTask = () => {
   const [addvalue, setAddvalue] = useState("");
 
   const dispatch = useDispatch();
-  const handleKeypress = (e) => {
-    if (e.key === "Enter") {
-      dispatch(addtask(addvalue));
-    }
-  };
+  // const handleKeypress = (e) => {
+  //   if (e.key === "Enter") {
+  //     dispatch(addtask(addvalue));
+      
+  //   }
+  //   setAddvalue("");
+  // };
   const submitTask = (e) => {
     e.preventDefault();
-
+    dispatch(addtask(addvalue))
     setAddvalue("");
   };
   return (
@@ -24,21 +26,22 @@ export const AddTask = () => {
           <Button 
             variant="primary"
             type="submit"
-            onClick={() => dispatch(addtask(addvalue))}
+            
           >
             Add Task
           </Button>
           <div style={{width:'300px'}}>
-          <InputGroup 
+          <InputGroup
             size="sm"
             className="mt-1 ms-2"
             type="text"
             value={addvalue}
             onChange={(e) => setAddvalue(e.target.value)}
-            onKeyPress={handleKeypress}
+            // onKeyPress={handleKeypress}
           >
-            <Form.Control type="text" placeholder="Add Task" />
-          </InputGroup>
+             <Form.Control type="text" placeholder="Add Task" />
+         
+            </InputGroup>
           </div>
         </Form.Group>
       </Form>

@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import React from "react";
-import { useState } from "react";
+
 import { useDispatch } from "react-redux";
 import { edit } from "./JS/actions/todoActions";
 const customStyles = {
