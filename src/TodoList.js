@@ -4,6 +4,7 @@ import TodoCard from "./TodoCard";
 
 const TodoList = () => {
     const list=useSelector((state)=>state.list)
+    const filtert=useSelector((state)=>state.filtert)
   return (
     <div>
       {

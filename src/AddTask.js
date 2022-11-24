@@ -7,13 +7,7 @@ export const AddTask = () => {
   const [addvalue, setAddvalue] = useState("");
 
   const dispatch = useDispatch();
-  // const handleKeypress = (e) => {
-  //   if (e.key === "Enter") {
-  //     dispatch(addtask(addvalue));
-      
-  //   }
-  //   setAddvalue("");
-  // };
+
   const submitTask = (e) => {
     e.preventDefault();
     dispatch(addtask(addvalue))
@@ -37,7 +31,7 @@ export const AddTask = () => {
             type="text"
             value={addvalue}
             onChange={(e) => setAddvalue(e.target.value)}
-            // onKeyPress={handleKeypress}
+        
           >
              <Form.Control type="text" placeholder="Add Task" />
          

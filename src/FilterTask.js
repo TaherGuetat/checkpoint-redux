@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
-import { filter } from './JS/actions/todoActions'
+import { filtertask } from './JS/actions/todoActions'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const FilterTask = (el) => {
@@ -9,8 +9,8 @@ const FilterTask = (el) => {
 
   return (
     <div className='d-flex justify-content-around '>
-        <Button variant="outline-primary" onClick={()=>dispatch(filter(!el.isdone))}>Done</Button>
-        <Button variant="outline-primary" onClick={()=>dispatch(filter(el.isdone))}>Undone</Button>
+        <Button variant="outline-primary" onClick={()=>dispatch(filtertask(true))}>Done</Button>
+        <Button variant="outline-primary" onClick={()=>dispatch(filtertask(false))}>Undone</Button>
     </div>
   )
 }
