@@ -25,17 +25,17 @@ export const AddTask = () => {
             Add Task
           </Button>
           <div style={{width:'300px'}}>
-          <InputGroup
+          <input
             size="sm"
             className="mt-1 ms-2"
             type="text"
             value={addvalue}
             onChange={(e) => setAddvalue(e.target.value)}
         
-          >
-             <Form.Control type="text" placeholder="Add Task" />
+          />
+            
          
-            </InputGroup>
+          
           </div>
         </Form.Group>
       </Form>

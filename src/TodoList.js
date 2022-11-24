@@ -3,17 +3,21 @@ import { useSelector } from "react-redux";
 import TodoCard from "./TodoCard";
 
 const TodoList = () => {
-    const list=useSelector((state)=>state.list)
-    const filtert=useSelector((state)=>state.filtert)
+  const list = useSelector((state) => state.list);
+  const filtert = useSelector((state) => state.filtert);
   return (
     <div>
-      {
-     list && list.length? list.map((el) => {
-      return  <TodoCard key={el.id} el={el} />
-
-     }):"No list"
-
-      }
+      {list.length
+        && filtert == "done"
+          ? list
+              .filter((el) => el.isdone)
+              .map((el) => <TodoCard key={el.id} el={el} />)
+          :list.length && filtert == "undone"
+          ? list
+              .filter((el) => !el.isdone)
+              .map((el) => <TodoCard key={el.id} el={el} />)
+          : list.map((el) => <TodoCard key={el.id} el={el} />)
+        }
     </div>
   );
 };

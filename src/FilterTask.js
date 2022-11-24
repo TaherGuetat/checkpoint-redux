@@ -9,8 +9,10 @@ const FilterTask = (el) => {
 
   return (
     <div className='d-flex justify-content-around '>
-        <Button variant="outline-primary" onClick={()=>dispatch(filtertask(true))}>Done</Button>
-        <Button variant="outline-primary" onClick={()=>dispatch(filtertask(false))}>Undone</Button>
+        <Button variant="outline-primary" onClick={()=>dispatch(filtertask('done'))}>Done</Button>
+        <Button variant="outline-primary" onClick={()=>dispatch(filtertask('undone'))}>Undone</Button>
+        <Button variant="outline-primary" onClick={()=>dispatch(filtertask('all'))}>All</Button>
+
     </div>
   )
 }

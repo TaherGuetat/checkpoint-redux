@@ -1,6 +1,6 @@
 import { ADDTASK, EDIT, FILTERTASK, TOGGLE_TODO } from "../actionTypes/todoTypes";
 
-const initialState = { list: [] , filtert:true};
+const initialState = { list: [] , filtert:'all'};
 
 export const todoReducers = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -10,16 +10,16 @@ export const todoReducers = (state = initialState, { type, payload }) => {
       return {
         ...state,
         list: state.list.map((el) =>
-          el.id == payload.id ? { ...el, isdone: !el.isdone } : el
+          el.id == payload ? { ...el, isdone: !el.isdone } : el
         ),
       };
     case FILTERTASK:
       
-        return { ...state,filtert:{...payload} }
+        return { ...state,filtert:payload }
      
       
       case EDIT:
-        return{...state,list:[...state.list,payload]}
+        return{...state,list:state.list.map((el)=>el.id==payload.id?{...el,value:payload.value}:el)}
 
   
 
